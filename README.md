@@ -14,7 +14,7 @@
   * [Questions](#questions)
   
   ## Installation 
-  Simply head to (replace with heroku website) and use as you please.
+  Simply head to https://frattijs-note-taker-538e645c616e.herokuapp.com/ and use as you please.
 
   ## Usage 
   Enter a title for your note, a description for your note, and click save. Delete function is currently not functional.
@@ -26,7 +26,7 @@
   npm test
 
   ## Deployable Link
-  https://FrattiJ.github.io/Note-Taker/
+  https://frattijs-note-taker-538e645c616e.herokuapp.com/
 
   ## Questions
   If you have any questions about this projects, please contact me directly at JacobRFratti@gmail.com. You can view more of my projects at https://github.com/FrattiJ.
