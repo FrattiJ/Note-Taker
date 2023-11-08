@@ -24,7 +24,7 @@ function getNotes() {
     return notes;
 };
 
-var notes = getNotes();
+let notes = getNotes();
 
 // Read the db.json file and return all saved notes as JSON
 app.get('/api/notes', (req, res) => {
