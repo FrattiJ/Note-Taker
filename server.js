@@ -39,4 +39,4 @@ app.post('/api/notes', (req, res) => {
     res.json(true);
 });
 
-app.listen(3001);
+app.listen(process.env.PORT);
