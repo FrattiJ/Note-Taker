@@ -24,16 +24,18 @@ function getNotes() {
     return notes;
 };
 
+var notes = getNotes();
+
 // Read the db.json file and return all saved notes as JSON
 app.get('/api/notes', (req, res) => {
-    console.log(getNotes());
-    res.json(getNotes());
+    console.log(notes);
+    res.json(notes);
 });
 
 //Receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved
 app.post('/api/notes', (req, res) => {
-    getNotes().push(req.body);
-    fs.writeFileSync('./db/db.json', JSON.stringify(getNotes()), 'utf8');
+    notes.push(req.body);
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes), 'utf8');
     res.json(true);
 });
 
