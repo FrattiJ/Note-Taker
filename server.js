@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 // Return the index .html file
 app.get('/', (req, res) => {
@@ -20,9 +21,6 @@ app.get('/notes', (req, res) => {
 function getNotes() {
     let data = fs.readFileSync('./db/db.json', 'utf8');
     let notes = JSON.parse(data);
-    for (let i = 0; i < notes.length; i++) {
-        notes[i].id = '' + i;
-    }
     return notes;
 };
 
@@ -34,7 +32,9 @@ app.get('/api/notes', (req, res) => {
 
 //Receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved
 app.post('/api/notes', (req, res) => {
-    req.body
+    getNotes().push(req.body);
+    fs.writeFileSync('./db/db.json', JSON.stringify(getNotes()), 'utf8');
+    res.json(true);
 });
 
 app.listen(3001);
